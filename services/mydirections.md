@@ -9,7 +9,8 @@ Be creative and use multiple parameters from the API documentation to earn a top
 ## Directions URL
 
 ```
-https://maps.googleapis.com/maps/api/directions/json?origin=Calypso+Theme+Waterpark/@45.3149959,-75.2204962,17z/data=!3m1!4b1!4m5!3m4!1s0x4cce797d507dcb99:0x8fa427f5570865fd!8m2!3d45.3149921!4d-75.2183075&destination=La+forêt+Larose,+Chem.+Clarence+Cambridge,+Bourget,+ON+K0A+1E0/@45.3420212,-75.2113996,12.25z/data=!4m16!1m6!3m5!1s0x4cce7bffbbcc74f5:0x371b4608a673c384!2sLa+forêt+Larose!8m2!3d45.3796237!4d-75.1807084!4m8!1m0!1m5!1m1!1s0x4cce7bffbbcc74f5:0x371b4608a673c384!2m2!1d-75.1807084!2d45.3796237!3e2&key=AIzaSyCM-WWHYHIKY-do4kquMy9Z4wQaQx51AuE 
+https://maps.googleapis.com/maps/api/directions/json?avoid=tolls&origin=Calypso+Theme+Waterpark/@45.3149959,-75.2204962&destination=La+forêt+Larose,+Chem.+Clarence+Cambridge,+Bourget,+ON+K0A+1E0/@45.3420212,-75.2113996&key=AIzaSyCM-WWHYHIKY-do4kquMy9Z4wQaQx51AuE 
+
 ```
 
 ## Next paste the full JSON response to this query here:
@@ -226,6 +227,7 @@ https://maps.googleapis.com/maps/api/directions/json?origin=Calypso+Theme+Waterp
    ],
    "status" : "OK"
 }
+
 ```
 ____
 ## Rubric
