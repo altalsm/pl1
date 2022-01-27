@@ -2,7 +2,7 @@
 <!-- source: https://developers.google.com/maps/documentation/javascript/overview#maps_map_simple-html -->
 <html>
   <head>
-    <title>Simple Map</title>
+    <title>Conservation Spots near Crysler, ON</title>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <style>
       /* Map height set to 100%*/
@@ -24,9 +24,27 @@
       function initMap() {
         map = new google.maps.Map(document.getElementById("map"), {
           center: { lat: 45.219784473869026, lng: -75.15426535537038 },
-          zoom: 15,
+          zoom: 10,
         });
       }
+      
+      google.maps.event.addListener(map, 'click', function(event) {
+  placeMarker(map, event.latLng);
+});
+
+function placeMarker(lat, lng) {
+  var marker = new google.maps.Marker({
+    position: new google.maps.LatLng(lat, lng),
+    map: map
+  });
+  var infowindow = new google.maps.InfoWindow({
+    content: 'Latitude: ' + location.lat() +
+    '<br>Longitude: ' + location.lng()
+  });
+  infowindow.open(map, marker);
+}
+      
+      
     </script>
   </head>
   <body>
