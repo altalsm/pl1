@@ -4,7 +4,6 @@
   <head>
     <title>Conservation Areas near Crysler, ON</title>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-    
     <style>
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
@@ -20,40 +19,14 @@
           padding: 0;
         }
     </style>
-    <script>
-      let map;
-
-function initMap() {
- const map = new google.maps.Map(document.getElementById("map"), {
-    zoom: 5,
-    center: { lat: 45.219784473869026, lng: -75.15426535537038 },
-  });
-const labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"; 
- 
-const markers = locations.map((location, i) => {
-  return new google.maps.Marker({
-    position: location,
-   label: labels[i % labels.length],
-    });
- });
-  
- const locations =  [
-{  lat: 45.32075334909435, lng: -75.08736624768575},
-{ lat: 45.261480713535136, lng: -75.10423849806091},
-{ lat: 45.21071039770976, lng:-75.01291465463055},
-{ lat: 45.212645336073145, lng: -75.2230281590643},
-{ lat: 45.15989472123551, lng: -75.36585041044411},
-{ lat: 45.1506946568472, lng: -75.0774593259272}
-];
-    </script>
-    
+   <script src="./story.js"></script>
   </head>
   <body>
     <div id="map"></div>
     
-    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
-    <!-- *** STUDENTS: Replace YOUR_API_KEY text with provided key in class for property src in next line *** -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCM-WWHYHIKY-do4kquMy9Z4wQaQx51AuE&callback=initMap&v=weekly" async>
-    </script>
+     <script
+      src="https://maps.googleapis.com/maps/api/js?key=key=AIzaSyCM-WWHYHIKY-do4kquMy9Z4wQaQx51AuE&callback=initMap&v=weekly"
+      async
+    ></script>
   </body>
 </html>
