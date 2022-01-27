@@ -19,39 +19,16 @@
         }
     </style>
     <script>
-    
- var LocationsForMap = [
-        ['High Falls Conservation Area', 45.32075334909435, -75.08736624768575],
-        ['St. Albert Conservation Area', 45.261480713535136, -75.10423849806091],
-        ['Warwick Forest Conservation Area', 45.21071039770976, -75.01291465463055],
-        ['Reveler Conservation Area', 45.212645336073145, -75.2230281590643]
-        ['Oschmann Forest Conservation', 45.15989472123551, -75.36585041044411]
-        ['South Nation Conservation', 45.1506946568472, -75.0774593259272]
-        ];
+      
+      let map;
 
-    var map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 13,
-      center: new google.maps.LatLng(45.219784473869026, -75.15426535537038),
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-    });
+      function initMap() {
+        map = new google.maps.Map(document.getElementById("map"), {
+          center: { lat: 45.219784473869026, lng: -75.15426535537038 },
+          zoom: 13,
+        });
+      }
 
-    var infowindow = new google.maps.InfoWindow();
-
-    var marker, i;
-
-    for (i = 0; i < LocationsForMap.length; i++) {  
-      marker = new google.maps.Marker({
-        position: new google.maps.LatLng(LocationsForMap[i][1], LocationsForMap[i][2]),
-        map: map
-      });
-
-      google.maps.event.addListener(marker, 'click', (function(marker, i) {
-        return function() {
-          infowindow.setContent(LocationsForMap[i][0]);
-          infowindow.open(map, marker);
-        }
-      })(marker, i));
-    }  
       
     </script>
   </head>
