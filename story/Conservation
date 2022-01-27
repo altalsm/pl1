@@ -1,31 +1,47 @@
 <!DOCTYPE html>
-<!-- source: https://developers.google.com/maps/documentation/javascript/overview#maps_map_simple-html -->
-<html lang="en">
-  <head>
-    <title>Conservation Areas near Crysler, ON</title>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-    <style>
-      /* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
-        #map {
-          height: 100%;
-        }
+<html> 
+<head> 
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" /> 
+  <title>Google Maps Multiple Markers</title> 
+  <script src="http://maps.google.com/maps/api/js?key=AIzaSyDv3MGflguusDaLmV_-BUlmuoUI4EbM88w" 
+          type="text/javascript"></script>
+</head> 
+<body>
+  <div id="map" style="width: 500px; height: 400px;"></div>
 
-        /* Optional: Makes the sample page fill the window. */
-        html,
-        body {
-          height: 100%;
-          margin: 0;
-          padding: 0;
-        }
-    </style>
-    </head>
-  <body>
-    <div id="map"></div>
+  <script type="text/javascript">
+    var locations = [
+      ['High Falls Conservation Area', 45.32075334909435, -75.08736624768575, 4],
+      ['St. Albert Conservation Area', 45.261480713535136, -75.10423849806091, 5],
+      ['Warwick Forest Conservation Area', 45.21071039770976, -75.01291465463055, 3],
+      ['Reveler Conservation Area', 45.212645336073145, -75.2230281590643, 2],
+      ['Oschmann Forest Conservation', 45.15989472123551, -75.36585041044411, 1]
+     ['South Nation Conservation', 45.1506946568472, -75.0774593259272, 1]
+    ];
+   
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 10,
+      center: new google.maps.LatLng(45.219784473869026, -75.15426535537038),
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    });
+   
+    var infowindow = new google.maps.InfoWindow();
+
+    var marker, i;
     
-     <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDv3MGflguusDaLmV_-BUlmuoUI4EbM88w&callback=initMap&v=weekly"
-      async
-    ></script>
-  </body>
+    for (i = 0; i < locations.length; i++) {  
+      marker = new google.maps.Marker({
+        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+        map: map
+      });
+      
+      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        return function() {
+          infowindow.setContent(locations[i][0]);
+          infowindow.open(map, marker);
+        }
+      })(marker, i));
+    }
+  </script>
+</body>
 </html>
