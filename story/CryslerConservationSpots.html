@@ -3,7 +3,7 @@
 <html>
   <head>
     <title>Conservation Spots near Crysler, ON</title>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script src="https://maps.google.com/maps/api/js?sensor=false"></script>
     <style>
       /* Map height set to 100%*/
         #map {
@@ -19,14 +19,7 @@
         }
     </style>
     <script>
-      let map;
-
-      function initMap() {
-        map = new google.maps.Map(document.getElementById("map"), {
-          center: { lat: 45.219784473869026, lng: -75.15426535537038 },
-          zoom: 13,
-        });
-      }
+    
  var LocationsForMap = [
         ['High Falls Conservation Area', 45.32075334909435, -75.08736624768575],
         ['St. Albert Conservation Area', 45.261480713535136, -75.10423849806091],
