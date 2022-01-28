@@ -40,10 +40,14 @@
         });
       }
           
-      marker.setMap(map)
+    function addMarker(location) {
+        marker = new google.maps.Marker({
+            position: LocationsForMap,
+            map: map
+        });
+    }
 
-      
-      
+            
         for(i  = 0;  i < markerlocations.length; i++) {
          var marker = new google.maps.Marker({
                  position: new google.maps.LatLng(markerlocations[i][0], markerlocations[i][1]),
