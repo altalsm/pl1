@@ -21,15 +21,8 @@
     <script>
       
       let map;
-
-      function initMap() {
-       var map = new google.maps.Map(document.getElementById("map"), {
-          center: { lat: 45.219784473869026, lng: -75.15426535537038 },
-          zoom: 13,
-        });
-      }
       
-      var LocationsForMap = [
+        var LocationsForMap = [
         ['High Falls Conservation Area', 45.32075334909435, -75.08736624768575],
         ['St. Albert Conservation Area', 45.261480713535136, -75.10423849806091],
         ['Warwick Forest Conservation Area', 45.21071039770976, -75.01291465463055],
@@ -37,7 +30,16 @@
         ['Oschmann Forest Conservation', 45.15989472123551, -75.36585041044411],
         ['South Nation Conservation', 45.1506946568472, -75.0774593259272]
         ];
+      
+      function initMap() {
+       var map = new google.maps.Map(document.getElementById("map"), {
+          center: { lat: 45.219784473869026, lng: -75.15426535537038 },
+          zoom: 13,
+        });
+      }
+          
       marker.setMap(map)
+      
         for(i  = 0;  i < markerlocations.length; i++) {
          var marker = new google.maps.Marker({
                  position: new google.maps.LatLng(markerlocations[i][0], markerlocations[i][1]),
