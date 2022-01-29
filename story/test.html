@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html>
   
-    <title>Marker Clustering</title>
-   <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCM-WWHYHIKY-do4kquMy9Z4wQaQx51AuE&callback=initMap&v=weekly"></script>
-  <script type="text/javascript">
-    var markers = [
+  <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript">
+     var markers = [
     {
         "title": 'High Falls Conservation Area',
         "lat": '45.32075334909435',
@@ -63,15 +62,13 @@
             (function (marker, data) {
                 google.maps.event.addListener(marker, "click", function (e) {
                     //Wrap the content inside an HTML DIV in order to set height and width of InfoWindow.
-                    infoWindow.setContent("<div style = 'width:200px;min-height:40px'>" + data.title + data.description + data.lat + data.lng "</div>");
+                    infoWindow.setContent("<div style = 'width:200px;min-height:40px'>" + data.description + "</div>");
                     infoWindow.open(map, marker);
                 });
             })(marker, data);
         }
     }
 </script>
-  
-   
 <div id="dvMap" style="width: 300px; height: 400px">
 </div>
     
