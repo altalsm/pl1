@@ -1,72 +1,140 @@
 <!DOCTYPE html>
-<!-- source: https://developers.google.com/maps/documentation/javascript/overview#maps_map_simple-html -->
 <html lang="en">
-  <head>
-    <title>Conservation Spots near Crysler, ON</title>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script> 
-    <style>
-      /* Map height set to 100%*/
-        #map {
-          height: 100%;
-        }
-
-        /* Sample page that fill the window. */
-        html,
-        body {
-          height: 100%;
-          margin: 0;
-          padding: 0;
-        }
-    </style>
+   <head>
+    <title> Conservation spots near Crysler Ontario </title>
+ <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCM-WWHYHIKY-do4kquMy9Z4wQaQx51AuE&callback=initMap&v=weekly"></script>
+      <!--Javascript API map Template source: https://www.aspsnippets.com/Articles/Google-Maps-API-V3-Add-marker-in-Google-Map-using-JavaScript.aspx--> 
+      <style>
+              /* using embedded CSS */
+          /* giving the title text CSS (text font/color/shadow/padding and positioning */
+         h1 {
+            text-align: center;
+            font-family: Calibri;
+            color: rgb(0, 128, 43);
+            text-shadow: 2px;
+            text-shadow: white;
+            border:2px; 
+            padding: 10 pts;
+         }
+         /* giving the text elements CSS (text font/color/shadow/padding and positioning */
+        p, h4, ul {   
+           font-family: Calibri;
+            color: rgb(0, 128, 43);
+            text-shadow: 2px;
+            text-shadow: white;
+            text-align: center;
+           padding: 15pts;
+           list-style-position: inside;
+         }
+                         
+         /* Changing the background color of the page */
+         
+        body 
+         {
+           background-color: rgb(204, 255, 204);
+         }
+      
+      </style>
+      
   </head>
   <body>
-    <script>
-      
-  let map;
-      
-        var LocationsForMap = [
-        ['High Falls Conservation Area', 45.32075334909435, -75.08736624768575],
-        ['St. Albert Conservation Area', 45.261480713535136, -75.10423849806091],
-        ['Warwick Forest Conservation Area', 45.21071039770976, -75.01291465463055],
-        ['Reveler Conservation Area', 45.212645336073145, -75.2230281590643],
-        ['Oschmann Forest Conservation', 45.15989472123551, -75.36585041044411],
-        ['South Nation Conservation', 45.1506946568472, -75.0774593259272]
-        ];
-      
-      function initMap() {
-       var map = new google.maps.Map(document.getElementById("map"), {
-          center: { lat: 45.219784473869026, lng: -75.15426535537038 },
-          zoom: 13,
-        });
-      }
-          
-    function addMarker(location) {
-        marker = new google.maps.Marker({
-            position: LocationsForMap,
-            map: map
-        });
-    }
+    <h1> Conservation Areas near Crysler, ON </h1>
+     
+       <h4> A list of the conservation areas shown on the map below </h4>
+    <ul>
+      <li> High Falls Conservation Area </li>
+      <li> St. Albert Conservation Area</li>
+      <li> Warwick Forest Conservation Area </li>
+      <li> Reveler Conservation Area</li>
+      <li> Oschmann Forest Conservation</li>
+    </ul>
+     <!-- reference for html lists: https://www.w3schools.com/html/html_lists.asp --!>
+     
+<script type="text/javascript">
+  // Javascript template derived from: "https://www.aspsnippets.com/Articles/Google-Maps-API-V3-Add-marker-in-Google-Map-using-JavaScript.aspx" 
+   // script uses locations for the markers, interactive windows, and a div to host the map
+    var markers = [
+    {
+        "title": 'High Falls Conservation Area',
+        "lat": '45.32075334909435',
+        "lng": '-75.08736624768575'
+    },
+    {
+        "title": 'St. Albert Conservation Area',
+        "lat": '45.261480713535136',
+        "lng": '-75.10423849806091'
 
-            
-        for(i  = 0;  i < markerlocations.length; i++) {
-         var marker = new google.maps.Marker({
-                 position: new google.maps.LatLng(markerlocations[i][0], markerlocations[i][1]),
-                 map: map,
-                 icon:  markerlocations[i][3]
-         });
-         var address = '<div><p><b>markerlocations[i][2]</b></p></div>';
-         var infowindow = new google.maps.InfoWindow({
-           content: address
-         });
-         marker.addListener('click', function() {
-           infowindow.open(map, marker);
-         });
-     }
+    },
+    {
+        "title": 'Warwick Forest Conservation Area',
+        "lat": '45.21071039770976',
+        "lng": '-75.01291465463055'
+
+    },
+    {
+        "title": 'Reveler Conservation Area',
+        "lat": '45.212645336073145',
+        "lng": '-75.2230281590643'
+
+    },
+    {
+        "title": 'Oschmann Forest Conservation',
+        "lat": '45.15989472123551',
+        "lng": '-75.36585041044411'
+
+    }
+    ];
+   // load the map and center it to Crysler Ontario - Zoom to 10 as that level shows all the markers without cutting anything off
+   // Use a road map type
+    window.onload = function () {
+        LoadMap();
+    }
+    function LoadMap() {
+        var mapOptions = {
+            center: { lat: 45.219784473869026, lng: -75.15426535537038 },
+            zoom: 10,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map(document.getElementById("dvMap"), mapOptions);
  
+        //Create an InfoWindow that opens.
+        var infoWindow = new google.maps.InfoWindow();
+ 
+        for (var i = 0; i < markers.length; i++) {
+            var data = markers[i];
+            var myLatlng = new google.maps.LatLng(data.lat, data.lng);
+            var marker = new google.maps.Marker({
+                position: myLatlng,
+                map: map,
+                title: data.title
+            });
+ 
+            // code that makes it so you can click and the title/name will appear.
+            (function (marker, data) {
+                google.maps.event.addListener(marker, "click", function (e) {
+                    //Wrap the content inside an HTML DIV in order to set height and width of InfoWindow.
+                    infoWindow.setContent("<div style = 'width:200px;min-height:40px'>" + data.title + "</div>");
+                    infoWindow.open(map, marker);
+                });
+            })(marker, data);
+        }
+    }
+</script>
+    
+   <div id="dvMap" style="width: 600px; height: 800px; margin: auto; padding: auto;">
+</div>
       
-    </script>
-    <div id="map"></div>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCM-WWHYHIKY-do4kquMy9Z4wQaQx51AuE&callback=initMap&v=weekly" async>
-    </script>
+     
+    <p> Crysler, Ontario a small town in North Stormont situated on the South Nation River. Crysler is located just south of Ottawa and North of Cornwall. Crysler has many outdoor
+      opportunities to offer including being surrounded by conservation Areas. These conservation areas are all managed by South Nation Conservation based out of Finch, Ontario.
+      </p>
+
+<br>
+      
+     <div id="footer">
+        <p> This HTML page was created by Allison Talsma **All righs reserved** </p>
+     </div>
+    
   </body>
+  
 </html>
