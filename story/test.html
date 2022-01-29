@@ -3,21 +3,12 @@
   <head>
     <title>Marker Clustering</title>
    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCM-WWHYHIKY-do4kquMy9Z4wQaQx51AuE&callback=initMap&v=weekly"></script>
-    <style>
-      .dvMap 
-       { 
-        height: 100%;
-         width: 100%;
-          margin: 0;
-          padding: 0;
-        }
-      </style>
-<script type="text/javascript">
+  <script type="text/javascript">
     var markers = [
     {
-        "title": 'Aksa Beach',
-        "lat": '19.1759668',
-        "lng": '72.79504659999998',
+        "title": 'High Falls Conservation Area',
+        "lat": '45.32075334909435',
+        "lng": '-75.08736624768575',
         "description": 'Aksa Beach is a popular beach and a vacation spot in Aksa village at Malad, Mumbai.'
     },
     {
@@ -72,7 +63,7 @@
             (function (marker, data) {
                 google.maps.event.addListener(marker, "click", function (e) {
                     //Wrap the content inside an HTML DIV in order to set height and width of InfoWindow.
-                    infoWindow.setContent("<div style = 'width:200px;min-height:40px'>" + data.description + "</div>");
+                    infoWindow.setContent("<div style = 'width:200px;min-height:40px'>" + data.title + data.description + data.lat + data.lng "</div>");
                     infoWindow.open(map, marker);
                 });
             })(marker, data);
