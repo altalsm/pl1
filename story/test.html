@@ -29,8 +29,14 @@
          }
          
          /* giving the footer div CSS style adjustments */
+        
+         #dvMap {
+            width: 600px; 
+            height: 800px; 
+            margin: auto;
+         }
          
-        div.footer {
+        #footer {
            margin: auto;
            padding: 15pts;
            border: 2pts;
@@ -62,6 +68,7 @@
      
 <script type="text/javascript">
   // Javascript template derived from: "https://www.aspsnippets.com/Articles/Google-Maps-API-V3-Add-marker-in-Google-Map-using-JavaScript.aspx" 
+   // locations for the markers
     var markers = [
     {
         "title": 'High Falls Conservation Area',
@@ -93,6 +100,8 @@
 
     }
     ];
+   // load the map and center it to Crysler Ontario - Zoom to 10 as that level shows all the markers without cutting anything off
+   // Use a road map type
     window.onload = function () {
         LoadMap();
     }
@@ -104,7 +113,7 @@
         };
         var map = new google.maps.Map(document.getElementById("dvMap"), mapOptions);
  
-        //Create and open InfoWindow.
+        //Create an InfoWindow that opens.
         var infoWindow = new google.maps.InfoWindow();
  
         for (var i = 0; i < markers.length; i++) {
@@ -116,7 +125,7 @@
                 title: data.title
             });
  
-            //Attach click event to the marker.
+            // code that makes it so you can click and the title/name will appear.
             (function (marker, data) {
                 google.maps.event.addListener(marker, "click", function (e) {
                     //Wrap the content inside an HTML DIV in order to set height and width of InfoWindow.
@@ -127,7 +136,8 @@
         }
     }
 </script>
-    <div id="dvMap" style="width: 600px; height: 800px; margin: auto;">
+     !-- div to host the map --!
+    <div id="dvMap">
 </div>
       
      
@@ -136,7 +146,7 @@
       </p>
 
       
-     <div class="footer">
+     <div id="footer">
         <p> This HTML page was created by Allison Talsma **All righs reserved** </p>
      </div>
     
