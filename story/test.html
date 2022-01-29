@@ -3,7 +3,20 @@
   <head>
     <title>Marker Clustering</title>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-    <link rel="stylesheet" type="text/css" href="./style.css" />
+    <style>
+      /* Map height set to 100%*/
+        #map {
+          height: 100%;
+        }
+
+        /* Sample page that fill the window. */
+        html,
+        body {
+          height: 100%;
+          margin: 0;
+          padding: 0;
+        }
+    </style>
     <script> 
       import { MarkerClusterer } from "@googlemaps/markerclusterer";
 
@@ -48,20 +61,7 @@ const locations = [['High Falls Conservation Area', 45.32075334909435, -75.08736
         ];
 
     </script>
-     <style>
-      /* Map height set to 100%*/
-        #map {
-          height: 100%;
-        }
-
-        /* Sample page that fill the window. */
-        html,
-        body {
-          height: 100%;
-          margin: 0;
-          padding: 0;
-        }
-    </style>
+     
   </head>
   <body>
     <div id="map"></div>
