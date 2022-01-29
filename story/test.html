@@ -3,9 +3,10 @@
    <head>
     <title> Conservation spots near Crysler Ontario </title>
  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCM-WWHYHIKY-do4kquMy9Z4wQaQx51AuE&callback=initMap&v=weekly"></script>
-     
+      // Javascript API map Template source: https://www.aspsnippets.com/Articles/Google-Maps-API-V3-Add-marker-in-Google-Map-using-JavaScript.aspx 
       <style>
-              
+              /* using embedded CSS */
+          /* giving the title text CSS (text font/color/shadow/padding and positioning */
          h1 {
             text-align: center;
             font-family: Calibri;
@@ -15,6 +16,7 @@
             border:2px; 
             padding: 10 pts;
          }
+         /* giving the text elements CSS (text font/color/shadow/padding and positioning */
         p, h4, ul {   
            font-family: Calibri;
             color: rgb(0, 128, 43);
@@ -26,12 +28,16 @@
 }
          }
          
-        .footer {
+         /* giving the footer div CSS style adjustments */
+         
+        div.footer {
            margin: auto;
            padding: 15pts;
            border: 2pts;
            border: black
          }
+         
+         /* Changing the background color of the page */
          
         body 
          {
@@ -52,6 +58,8 @@
       <li> Reveler Conservation Area</li>
       <li> Oschmann Forest Conservation</li>
     </ul>
+     !-- reference for html lists: https://www.w3schools.com/html/html_lists.asp --!
+     
 <script type="text/javascript">
   // Javascript template derived from: "https://www.aspsnippets.com/Articles/Google-Maps-API-V3-Add-marker-in-Google-Map-using-JavaScript.aspx" 
     var markers = [
@@ -133,4 +141,5 @@
      </div>
     
   </body>
+  
 </html>
