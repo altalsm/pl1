@@ -89,7 +89,8 @@
           title: 'Oschmann Forest Conservation'
         });
      
-  var infoWindow = new google.maps.InfoWindow();
+  var infoWindow = new google.maps.InfoWindow({
+                    content: marker.title});
         infowindow.open(map, marker);            }
  
        
