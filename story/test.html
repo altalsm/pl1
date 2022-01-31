@@ -119,7 +119,7 @@
     }
   for (var makers in "dvMap") {
     // Add the circle for Crysler to the map.
-    const cityCircle = load maps.Map.Polygon(document.getElementById("dvMap"),{
+    const cityCircle = new maps.Map.Circle(document.getElementById("dvMap"),{
       strokeColor: "#FF0000",
       strokeOpacity: 0.8,
       strokeWeight: 2,
