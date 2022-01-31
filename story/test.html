@@ -119,6 +119,25 @@
             })(marker, data);
         }
     }
+  const triangleCoords = [
+    { lat: 45.22044531720854, lng: -75.16209408765772},
+    { lat: 45.22414786594888, lng: -75.15107047849166},
+    { lat: 45.209192402956305, lng: -75.15887886831763},
+    { lat: 45.214909017857195, lng: -75.14397658185239},
+    { lat: 45.22044531720854, lng: -75.16209408765772},
+  ];
+  // Construct the polygon.
+  const bermudaTriangle = new google.maps.Polygon({
+    paths: triangleCoords,
+    strokeColor: "#FF0000",
+    strokeOpacity: 0.8,
+    strokeWeight: 2,
+    fillColor: "#FF0000",
+    fillOpacity: 0.35,
+  });
+
+  bermudaTriangle.setMap(map);
+}
 </script>
     
    <div id="dvMap" style="width: 600px; height: 800px; margin: auto; padding: auto;">
