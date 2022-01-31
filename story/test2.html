@@ -57,7 +57,12 @@
           map: map,
           title: 'Highfalls Conservation Area'
         });
-        
+google.maps.event.addListener(marker,'click',function() {
+    var infowindow = new google.maps.InfoWindow({
+      content: 'Highfalls Conservation Area'
+    });
+  infowindow.open(map,ConservationSpots);
+  });
           // marker
         var Albert = {lat: 45.261480713535136, lng: -75.10423849806091};
         var marker = new google.maps.Marker({
@@ -65,7 +70,13 @@
           map: map,
           title: 'St. Albert Conservation Area'
         });
-        
+google.maps.event.addListener(marker,'click',function() {
+    var infowindow = new google.maps.InfoWindow({
+      content: 'St. Albert Conservation Area'
+    });
+  infowindow.open(map,ConservationSpots);
+  });
+	        
   // marker
         var Warwick = {lat: 45.21071039770976, lng: -75.01291465463055};
         var marker = new google.maps.Marker({
@@ -73,7 +84,13 @@
           map: map,
           title: 'Warwick Forest Conservation Area'
         });
-        
+google.maps.event.addListener(marker,'click',function() {
+    var infowindow = new google.maps.InfoWindow({
+      content: 'Warwick Forest Conservation Area'
+    });
+  infowindow.open(map,ConservationSpots);
+  });
+   
   // marker
         var Reveler = {lat: 45.32075334909435, lng: -75.08736624768575};
         var marker = new google.maps.Marker({
@@ -81,6 +98,13 @@
           map: map,
           title: 'Reveler Conservation Area'
         });
+ google.maps.event.addListener(marker,'click',function() {
+    var infowindow = new google.maps.InfoWindow({
+      content: 'Reveler Conservation Area'
+    });
+  infowindow.open(map,ConservationSpots);
+  });
+	      
   // marker
         var Oschmann = {lat: 45.15989472123551, lng: -75.36585041044411};
         var marker = new google.maps.Marker({
@@ -88,14 +112,14 @@
           map: map,
           title: 'Oschmann Forest Conservation'
         });
-      
-         
-var infowindow = new google.maps.InfoWindow();
-				
-infowindow.open(map,ConservationSpots);
-    }
-     
-    
+ google.maps.event.addListener(marker,'click',function() {
+    var infowindow = new google.maps.InfoWindow({
+      content: 'Oschmann Forest Conservation'
+    });
+  infowindow.open(map,ConservationSpots);
+  });
+      }   
+          
     </script>
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDv3MGflguusDaLmV_-BUlmuoUI4EbM88w&callback=initMap">
