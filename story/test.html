@@ -84,7 +84,7 @@ var markers = [
             center: { lat: 45.219784473869026, lng: -75.15426535537038 },
             zoom: 10,
             mapTypeId: google.maps.MapTypeId.ROADMAP
-        }:
+        };
         
         var map = new google.maps.Map(document.getElementById("dvMap"), mapOptions);
 
@@ -111,6 +111,15 @@ var markers = [
           })(marker, data);
         }
     }
+
+        var CryslerCoords = [
+         { lat: 45.22044531720854, lng: -75.16209408765772},
+         { lat: 45.22414786594888, lng: -75.15107047849166},
+         { lat: 45.214909017857195, lng: -75.14397658185239},
+         { lat: 45.209192402956305, lng: -75.15887886831763},
+         { lat: 45.22044531720854, lng: -75.16209408765772}
+        ];
+        };
 </script>
     
    <div id="dvMap" style="width: 600px; height: 800px; margin: auto; padding: auto;">
