@@ -53,8 +53,7 @@
 <script type="text/javascript">
   // Javascript template derived from: "https://www.aspsnippets.com/Articles/Google-Maps-API-V3-Add-marker-in-Google-Map-using-JavaScript.aspx" 
    // script uses locations for the markers, interactive windows, and a div to host the map
-    
-   var markers = [
+    var markers = [
     {
         "title": 'High Falls Conservation Area',
         "lat": '45.32075334909435',
@@ -64,24 +63,27 @@
         "title": 'St. Albert Conservation Area',
         "lat": '45.261480713535136',
         "lng": '-75.10423849806091'
+
     },
     {
         "title": 'Warwick Forest Conservation Area',
         "lat": '45.21071039770976',
         "lng": '-75.01291465463055'
+
     },
     {
         "title": 'Reveler Conservation Area',
         "lat": '45.212645336073145',
         "lng": '-75.2230281590643'
+
     },
     {
         "title": 'Oschmann Forest Conservation',
         "lat": '45.15989472123551',
         "lng": '-75.36585041044411'
+
     }
     ];
-
    // load the map and center it to Crysler Ontario - Zoom to 10 as that level shows all the markers without cutting anything off
    // Use a road map type
     window.onload = function () {
@@ -93,7 +95,7 @@
             zoom: 10,
             mapTypeId: google.maps.MapTypeId.ROADMAP
         };
-        var map = new google.maps.Map.Polygon(document.getElementById("dvMap"), mapOptions);
+        var map = new google.maps.Map(document.getElementById("dvMap"), mapOptions);
  
         //Create an InfoWindow that opens.
         var infoWindow = new google.maps.InfoWindow();
@@ -117,20 +119,6 @@
             })(marker, data);
         }
     }
-const CryslerCoords = [
-   { lat: 45.22044531720854, lng: -75.16209408765772},
-    { lat: 45.22414786594888, lng: -75.15107047849166},
-    { lat: 45.214909017857195, lng: -75.14397658185239},
-    { lat: 45.209192402956305, lng: -75.15887886831763},
-    { lat: 45.22044531720854, lng: -75.16209408765772},
-  ];
-
-  map.data.add({
-    geometry: new google.maps.Data.Polygon([
-      CryslerCoords,
-         ]),
-  });
-
 </script>
     
    <div id="dvMap" style="width: 600px; height: 800px; margin: auto; padding: auto;">
