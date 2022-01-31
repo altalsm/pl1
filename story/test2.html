@@ -91,8 +91,8 @@
      
   var infoWindow = new google.maps.InfoWindow();
  
-        for (var i = 0; i < markers.length; i++) {
-            var data = markers[i];
+        for (var i = 0; i < marker.length; i++) {
+            var data = marker[i];
             var myLatlng = new google.maps.LatLng(data.lat, data.lng);
             var marker = new google.maps.Marker({
                 position: myLatlng,
