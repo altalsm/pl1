@@ -119,11 +119,11 @@
     }
  CryslerPolygon.add(new atlas.data.Feature(
     new atlas.data.Polygon([[    
-    [ 45.22044531720854, -75.16209408765772],
-    [ 45.22414786594888, -75.15107047849166],
-    [ 45.209192402956305, -75.15887886831763],
-    [ 45.214909017857195, -75.14397658185239],
-    [ 45.22044531720854, -75.16209408765772],
+    [-75.16209408765772, 45.22044531720854 ],
+    [ -75.15107047849166, 45.22414786594888 ],
+    [ -75.14397658185239, 45.214909017857195 ],
+    [ -75.15887886831763, 45.209192402956305],
+    [ -75.16209408765772, 45.22044531720854 ],
   ]])
 ));
 //Create and add a polygon layer to render the polygon to the map, below the label layer.
@@ -131,7 +131,7 @@ map.layers.add(new atlas.layer.PolygonLayer(CryslerPolygon, null,{
     fillColor: 'red',
     fillOpacity: 0.7
 }), 'labels')
-);
+;
 
 
 </script>
