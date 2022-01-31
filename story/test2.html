@@ -1,26 +1,71 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
-    <title>Polygon+marker example</title>
+    <title>Crysler Conservation Areas</title>
     <style>
-      /* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
+      /* Set the map height to define the size of the div */
       #map {
         height: 100%;
       }
-      /* Optional: Makes the sample page fill the window. */
+      /* Optional: Sample page that fills the window. */
       html, body {
         height: 100%;
         margin: 0;
         padding: 0;
       }
+	            /* using embedded CSS */
+          /* giving the title text CSS (text font/color/shadow/padding and positioning */
+         h1 {
+            text-align: center;
+            font-family: Calibri;
+            color: rgb(0, 128, 43);
+            text-shadow: 2px;
+            text-shadow: white;
+            border:2px; 
+            padding: 10 pts;
+         }
+         /* giving the text elements CSS (text font/color/shadow/padding and positioning */
+        p, h4, ul {   
+           font-family: Calibri;
+            color: rgb(0, 128, 43);
+            text-shadow: 2px;
+            text-shadow: white;
+            text-align: center;
+           padding: 15pts;
+           list-style-position: inside;
+         }
+                         
+         /* Changing the background color of the page */
+         
+        body 
+         {
+           background-color: rgb(204, 255, 204);
+         }
+	    
     </style>
   </head>
   <body>
+	      <h1> Conservation Areas near Crysler, ON </h1>
+     
+       <h4> A list of the conservation areas shown on the map below </h4>
+    <ul>
+      <li> High Falls Conservation Area </li>
+      <li> St. Albert Conservation Area</li>
+      <li> Warwick Forest Conservation Area </li>
+      <li> Reveler Conservation Area</li>
+      <li> Oschmann Forest Conservation</li>
+    </ul>
+     <!-- reference for html lists: https://www.w3schools.com/html/html_lists.asp --!>
+
     <div id="map"></div>
     <script>
+	    // references used for this script: https://www.w3schools.com/graphics/tryit.asp?filename=trymap_events_infowindow
+	    // references used for this script: https://github.com/google-map-react/google-map-react/issues/541
+	    // references used for this script: https://cloud.google.com/blog/products/maps-platform/improved-accessibility-maps-javascript-api
+	    // references used for this script: https://developers.google.com/maps/documentation/javascript/infowindows
+	    // references used for this script: https://developers.google.com/maps/documentation/javascript/infowindows
       var map;
 
       function initMap() {
