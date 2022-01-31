@@ -82,6 +82,7 @@
     ];
 
 
+
    // load the map and center it to Crysler Ontario - Zoom to 10 as that level shows all the markers without cutting anything off
    // Use a road map type
     window.onload = function () {
@@ -93,7 +94,7 @@
             zoom: 10,
             mapTypeId: google.maps.MapTypeId.ROADMAP
         };
-        var map = new google.maps.Map(document.getElementById("dvMap"), mapOptions);
+        const map = new google.maps.Map(document.getElementById("dvMap"), mapOptions, markers);
 
 const CryslerCoords = [
    { lat: 45.22044531720854, lng: -75.16209408765772},
@@ -103,7 +104,7 @@ const CryslerCoords = [
     { lat: 45.22044531720854, lng: -75.16209408765772}
   ];
 
- var map = map.data.add({
+  map.data.add({
     geometry: new google.maps.Data.Polygon([
       CryslerCoords
     ]),
