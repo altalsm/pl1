@@ -117,19 +117,22 @@
             })(marker, data);
         }
     }
-  for (var makers in "dvMap") {
-    // Add the circle for Crysler to the map.
-    const cityCircle = new maps.Map.Circle(document.getElementById("dvMap"),{
-      strokeColor: "#FF0000",
-      strokeOpacity: 0.8,
-      strokeWeight: 2,
-      fillColor: "#FF0000",
-      fillOpacity: 0.35,
-      map: map,
-      center: { lat: 45.219784473869026, lng: -75.15426535537038 },
-      radius: 7000,
-    });
-  }
+ CryslerPolygon.add(new atlas.data.Feature(
+    new atlas.data.Polygon([[    
+    [ lat: 45.22044531720854, lng: -75.16209408765772],
+    [ lat: 45.22414786594888, lng: -75.15107047849166],
+    [ lat: 45.209192402956305, lng: -75.15887886831763],
+    [ lat: 45.214909017857195, lng: -75.14397658185239],
+    [ lat: 45.22044531720854, lng: -75.16209408765772],
+  ]])
+));
+//Create and add a polygon layer to render the polygon to the map, below the label layer.
+map.layers.add(new atlas.layer.PolygonLayer(CryslerPolygon, null,{
+    fillColor: 'red',
+    fillOpacity: 0.7
+}), 'labels')
+});
+
 
 </script>
     
