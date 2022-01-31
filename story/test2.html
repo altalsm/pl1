@@ -82,24 +82,21 @@
           title: 'Reveler Conservation Area'
         });
   // marker
-        var infoWindow = new google.maps.InfoWindow();
         var Oschmann = {lat: 45.15989472123551, lng: -75.36585041044411};
         var marker = new google.maps.Marker({
           position: Oschmann,
           map: map,
           title: 'Oschmann Forest Conservation'
         });
-     
- marker.addListener("click", () => {
-    infowindow.open({
-      anchor: marker,
-      map,
-      shouldFocus: false,
-    });
-  });
-}
       
-
+         
+var infowindow = new google.maps.InfoWindow({
+    content: data.title});
+				
+infowindow.open(map,ConservationSpots);
+    }
+     
+    
     </script>
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDv3MGflguusDaLmV_-BUlmuoUI4EbM88w&callback=initMap">
