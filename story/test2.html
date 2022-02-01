@@ -139,7 +139,7 @@
 	
     }
     ];
-	   
+var iconBase = 'https://altalsm.github.io/pl1/story';   
       
 var infoWindow = new google.maps.InfoWindow();
  
@@ -149,8 +149,8 @@ var infoWindow = new google.maps.InfoWindow();
             var marker = new google.maps.Marker({
                 position: myLatlng,
                 map: map,
-                title: data.title
-		
+                title: data.title,
+		icon: iconBase + 'SNCLogo.png'
             });
  
             // code that makes it so you can click and the title and icon for SNC will appear.
