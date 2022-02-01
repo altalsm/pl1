@@ -61,6 +61,7 @@
      
        <h4> A list of the conservation areas shown on the map below </h4>
     <ul>
+      <li> South Nation Conservation: Conservation Areas Head Office </li>
       <li> High Falls Conservation Area </li>
       <li> St. Albert Conservation Area</li>
       <li> Warwick Forest Conservation Area </li>
@@ -139,7 +140,7 @@
 	
     }
     ];
-var iconBase = 'https://altalsm.github.io/pl1/story';   
+   
       
 var infoWindow = new google.maps.InfoWindow();
  
@@ -149,11 +150,11 @@ var infoWindow = new google.maps.InfoWindow();
             var marker = new google.maps.Marker({
                 position: myLatlng,
                 map: map,
-                title: data.title,
-		icon: iconBase + 'SNCLogo.png'
+                title: data.title
+		
             });
  
-            // code that makes it so you can click and the title and icon for SNC will appear.
+            // code that makes it so you can click and the name will appear.
 		
             (function (marker, data) {
                 google.maps.event.addListener(marker, "click", function (e) {
