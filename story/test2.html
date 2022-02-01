@@ -9,8 +9,9 @@
       /* Set the map height to define the size of the div */
       #map {
         height: 100%;
+	border-color: green;
       }
-      /* Optional: Sample page that fills the window. */
+      /* set the html and page height to 100% */
       html, body {
         height: 100%;
         }
@@ -149,6 +150,7 @@ var infoWindow = new google.maps.InfoWindow();
                 position: myLatlng,
                 map: map,
                 title: data.title
+		icon: data.icon
             });
  
             // code that makes it so you can click and the title and icon for SNC will appear.
