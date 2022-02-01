@@ -1,11 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-    <title> Conservation spots near Crysler Ontario </title>
- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCM-WWHYHIKY-do4kquMy9Z4wQaQx51AuE&callback=initMap&v=weekly"></script>
-      <!--Javascript API map Template source: https://www.aspsnippets.com/Articles/Google-Maps-API-V3-Add-marker-in-Google-Map-using-JavaScript.aspx--> 
-      <style>
-              /* using embedded CSS */
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Crysler Conservation Areas</title>
+    <style>
+/* using embedded CSS */
+      /* Set the map height to define the size of the div */
+      #map {
+        height: 100%;
+	}
+      /* set the html and page height to 100% while leaving space on the sides*/
+      html, body {
+        height: 100%;
+	  }
+	    
+      footer {
+	     clear: both;
+	     padding: 100 px;
+	     margin: 100 px;
+	     text-align: center;
+	     font-family: Calibri;
+	     border-style: solid;
+	     border-color: green;
+	    }
+	   
           /* giving the title text CSS (text font/color/shadow/padding and positioning */
          h1 {
             text-align: center;
@@ -33,15 +52,15 @@
          {
            background-color: rgb(204, 255, 204);
          }
-      
-      </style>
-      
+	    
+    </style>
   </head>
   <body>
-    <h1> Conservation Areas near Crysler, ON </h1>
+	      <h1> Conservation Areas near Crysler, ON </h1>
      
        <h4> A list of the conservation areas shown on the map below </h4>
     <ul>
+      <li> South Nation Conservation: Conservation Areas Head Office </li>
       <li> High Falls Conservation Area </li>
       <li> St. Albert Conservation Area</li>
       <li> Warwick Forest Conservation Area </li>
@@ -49,11 +68,45 @@
       <li> Oschmann Forest Conservation</li>
     </ul>
      <!-- reference for html lists: https://www.w3schools.com/html/html_lists.asp --!>
-     
-<script type="text/javascript">
-  // Javascript template derived from: "https://www.aspsnippets.com/Articles/Google-Maps-API-V3-Add-marker-in-Google-Map-using-JavaScript.aspx" 
-   // script uses locations for the markers, interactive windows, and a div to host the map
-    var markers = [
+
+    <div id="map"></div>
+    <script>
+	    // references used for this script: https://www.w3schools.com/graphics/tryit.asp?filename=trymap_events_infowindow
+	    // references used for this script: https://github.com/google-map-react/google-map-react/issues/541
+	    // references used for this script: https://cloud.google.com/blog/products/maps-platform/improved-accessibility-maps-javascript-api
+	    // references used for this script: https://developers.google.com/maps/documentation/javascript/infowindows
+	    // references used for this script: https://developers.google.com/maps/documentation/javascript/infowindows
+      var map;
+
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 11,
+          center: {lat: 45.219784473869026, lng: -75.15426535537038},
+          mapTypeId: 'terrain'
+        });
+
+        // Define the LatLng coordinates for the polygon.
+        var CryslerCoords = [
+         { lat: 45.222965796839375, lng: -75.16915428317745 },
+         { lat: 45.23087351025405, lng: -75.14812776939773 },
+         { lat: 45.2116917937558, lng: -75.13514440261085 },
+         { lat: 45.20322581047822, lng: -75.1648418178617 },
+         { lat: 45.222965796839375, lng: -75.16915428317745 }
+        ];
+
+        // Construct the polygon.
+        var ConservationSpots = new google.maps.Polygon({
+          paths: CryslerCoords,
+          strokeColor: '#6a5acd',
+          strokeOpacity: 0.8,
+          strokeWeight: 1,
+          fillColor: '#ffabc1',
+          fillOpacity: 0.35
+        });
+        ConservationSpots.setMap(map);
+
+
+ var markers = [
     {
         "title": 'High Falls Conservation Area',
         "lat": '45.32075334909435',
@@ -63,42 +116,32 @@
         "title": 'St. Albert Conservation Area',
         "lat": '45.261480713535136',
         "lng": '-75.10423849806091'
-
     },
     {
         "title": 'Warwick Forest Conservation Area',
         "lat": '45.21071039770976',
         "lng": '-75.01291465463055'
-
     },
     {
         "title": 'Reveler Conservation Area',
         "lat": '45.212645336073145',
         "lng": '-75.2230281590643'
-
     },
     {
         "title": 'Oschmann Forest Conservation',
         "lat": '45.15989472123551',
         "lng": '-75.36585041044411'
-
+    },
+  {
+        "title": 'South Nation Conservation',
+        "lat": '45.140220229577366',
+        "lng": '-75.08159362924356'
+	
     }
     ];
-   // load the map and center it to Crysler Ontario - Zoom to 10 as that level shows all the markers without cutting anything off
-   // Use a road map type
-    window.onload = function () {
-        LoadMap();
-    }
-    function LoadMap() {
-        var mapOptions = {
-            center: { lat: 45.219784473869026, lng: -75.15426535537038 },
-            zoom: 10,
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-        };
-        var map = new google.maps.Map(document.getElementById("dvMap"), mapOptions);
- 
-        //Create an InfoWindow that opens.
-        var infoWindow = new google.maps.InfoWindow();
+   
+      
+var infoWindow = new google.maps.InfoWindow();
  
         for (var i = 0; i < markers.length; i++) {
             var data = markers[i];
@@ -107,9 +150,11 @@
                 position: myLatlng,
                 map: map,
                 title: data.title
+		
             });
  
-            // code that makes it so you can click and the title/name will appear.
+            // code that makes it so you can click and the name will appear.
+		
             (function (marker, data) {
                 google.maps.event.addListener(marker, "click", function (e) {
                     //Wrap the content inside an HTML DIV in order to set height and width of InfoWindow.
@@ -119,22 +164,18 @@
             })(marker, data);
         }
     }
-</script>
-    
-   <div id="dvMap" style="width: 600px; height: 800px; margin: auto; padding: auto;">
-</div>
-      
-     
-    <p> Crysler, Ontario a small town in North Stormont situated on the South Nation River. Crysler is located just south of Ottawa and North of Cornwall. Crysler has many outdoor
+               
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDv3MGflguusDaLmV_-BUlmuoUI4EbM88w&callback=initMap">
+    </script>
+ <p> Crysler, Ontario a small town in North Stormont situated on the South Nation River. Crysler is located just south of Ottawa and North of Cornwall. Crysler has many outdoor
       opportunities to offer including being surrounded by conservation Areas. These conservation areas are all managed by South Nation Conservation based out of Finch, Ontario.
       </p>
 
-<br>
-      
-     <div id="footer">
+  <footer>
         <p> This HTML page was created by Allison Talsma **All righs reserved** </p>
-     </div>
-    
+     </footer>
+
   </body>
-  
 </html>
