@@ -13,9 +13,7 @@
       /* Optional: Sample page that fills the window. */
       html, body {
         height: 100%;
-        margin: 0;
-        padding: 0;
-      }
+        }
 	    
       footer {
 	     clear: both;
@@ -136,15 +134,11 @@
   {
         "title": 'South Nation Conservation',
         "lat": '45.140220229577366',
-        "lng": '-75.08159362924356',
-	"icon": 'https://altalsm.github.io/pl1/story/SNCLogo.png'
+        "lng": '-75.08159362924356'
     },
     ];
-	//reference: https://www.nation.on.ca/ ICON taken from     
- 
-45.140220229577366, -75.08159362924356
+	   
       
-
 var infoWindow = new google.maps.InfoWindow();
  
         for (var i = 0; i < markers.length; i++) {
@@ -161,7 +155,7 @@ var infoWindow = new google.maps.InfoWindow();
             (function (marker, data) {
                 google.maps.event.addListener(marker, "click", function (e) {
                     //Wrap the content inside an HTML DIV in order to set height and width of InfoWindow.
-                    infoWindow.setContent("<div style = 'width:200px;min-height:40px'>" + data.icon + data.title + "</div>");
+                    infoWindow.setContent("<div style = 'width:200px;min-height:40px'>" + data.title + "</div>");
                     infoWindow.open(map, marker);
                 });
             })(marker, data);
