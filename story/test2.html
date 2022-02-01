@@ -134,7 +134,8 @@
   {
         "title": 'South Nation Conservation',
         "lat": '45.140220229577366',
-        "lng": '-75.08159362924356'
+        "lng": '-75.08159362924356',
+	"icon": 'https://altalsm.github.io/pl1/story/SNCLogo.png'
     }
     ];
 	   
@@ -155,7 +156,7 @@ var infoWindow = new google.maps.InfoWindow();
             (function (marker, data) {
                 google.maps.event.addListener(marker, "click", function (e) {
                     //Wrap the content inside an HTML DIV in order to set height and width of InfoWindow.
-                    infoWindow.setContent("<div style = 'width:200px;min-height:40px'>" + data.title + "</div>");
+                    infoWindow.setContent("<div style = 'width:200px;min-height:40px'>" data.icon + data.title + "</div>");
                     infoWindow.open(map, marker);
                 });
             })(marker, data);
