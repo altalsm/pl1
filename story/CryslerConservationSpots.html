@@ -85,7 +85,7 @@
           mapTypeId: 'terrain'
         });
 
-        // Define the LatLng coordinates for the polygon.
+        // Define the variable LatLng coordinates for the polygon.
         var CryslerCoords = [
          { lat: 45.222965796839375, lng: -75.16915428317745 },
          { lat: 45.23087351025405, lng: -75.14812776939773 },
@@ -105,7 +105,7 @@
         });
         ConservationSpots.setMap(map);
 
-
+// Define variables for markers
  var markers = [
     {
         "title": 'High Falls Conservation Area',
@@ -140,7 +140,7 @@
     }
     ];
    
-      
+      // add an infowindow with data from marker variables
 var infoWindow = new google.maps.InfoWindow();
  
         for (var i = 0; i < markers.length; i++) {
@@ -153,7 +153,7 @@ var infoWindow = new google.maps.InfoWindow();
 		
             });
  
-            // code that makes it so you can click and the name will appear.
+            // click on the marker and the info window with name will appear.
 		
             (function (marker, data) {
                 google.maps.event.addListener(marker, "click", function (e) {
