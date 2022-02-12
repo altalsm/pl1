@@ -1,0 +1,51 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>Valentines Hike Webmap</title>
+
+    <style>
+    h1 {color: Red;}
+    p  {color: purple;}
+      html,
+      body,
+      #viewDiv {
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        width: 100%;
+      }
+    </style>
+
+    <link rel="stylesheet" href="https://js.arcgis.com/4.22/esri/themes/light/main.css" />
+
+    <script src="https://js.arcgis.com/4.22/"></script>
+
+    <script>
+      require(["esri/views/MapView", "esri/WebMap"], (MapView, WebMap) => {
+        /************************************************************
+         * Creates a new WebMap from AGOL -
+         References the MAP ID for the new map created in AGOL
+         ************************************************************/
+        const webmap = new WebMap({
+          portalItem: {
+         
+            id: "b4b3d89ab5984ef29d268c738dd62c49"
+          }
+        });
+
+       
+        const view = new MapView({
+          map: webmap,
+          container: "viewDiv"
+        });
+      });
+    </script>
+  </head>
+
+  <body>
+  <h1>Lough Ouler</h1>
+  <p> Come visit Lough Ouler this Valentines day, located just south of Dublin, Ireland. Bring your loved ones to hike around our heart shaped lake on the Lough Ouler trail!</p>
+    <div id="viewDiv"></div>
+  </body>
+</html>
