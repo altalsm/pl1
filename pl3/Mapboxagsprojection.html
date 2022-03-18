@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8" />
-<title>Geom99: Add ArcGIS Map Service source - Projected Fix</title>
+<title>Geom99: Add ArcGIS Map Service source</title>
 <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
 <script src="https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.js"></script>
 <link href="https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css" rel="stylesheet" />
@@ -23,14 +23,12 @@
         zoom: 3,
         center: [-100.0, 50.0]
     });
-   // NOTE: The {bbox-epsg-3857} is replaced with the actual display bounding box by MapBox on runtime https://mapbox.github.io/mapbox-gl-native/macos/0.5.0/tile-url-templates.html
-   // The map service ArcGIS Server export request is modified to display as web mercator (102100). 
-   // I used F12 network tab and modifed a request from an ArcGIS Online WebMap to form this.
+
     map.on('load', function() {
         map.addSource('wms-test-source', {
             'type': 'raster',
             'tiles': [
-                'https://luna.flemingcollege.ca/arcgis/rest/services/bigbrains60/CanadaAltalsm/MapServer/export?bbox={bbox-epsg-3857}&bboxSR=102100&layers=show%3A0&layerDefs=&size=256%2C256&imageSR=102100&historicMoment=&format=png32&transparent=true&dpi=96&time=&layerTimeOptions=&dynamicLayers=&gdbVersion=&mapScale=&rotation=&datumTransformations=&layerParameterValues=&mapRangeValues=&layerRangeValues=&f=image'
+                'https://luna.flemingcollege.ca/arcgis/rest/services/DemoMapExample/MapServer/export?bbox={bbox-epsg-3857}&bboxSR=EPSG%3A3857&layers=0&layerDefs=&size=256%2c256&imageSR=&format=png&transparent=true&dpi=&time=&layerTimeOptions=&dynamicLayers=&gdbVersion=&mapScale=&f=image'
             ],
             'tileSize': 256
         });
