@@ -20,7 +20,12 @@
             attribution: '&copy; ' + mapLink + ' Contributors',
             maxZoom:18 ,
             }).addTo(map);
-        var ToteRoad = L.geoJSON('DumoineTrail.geojson).addTo(map);
+                                       
+            $.getJSON("https://github.com/altalsm/pl1/blob/main/opensource/Dumoine_Data/Dumoine_Data/DumoineTrail.geojson", function(response) {
+            console.log("response", response);
+            var geojsonLayer = new L.GeoJSON(response);
+            geojsonLayer.addTo(map);    
+        });
     </script>
 </body>
 </html>
