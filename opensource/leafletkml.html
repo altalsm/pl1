@@ -1,23 +1,42 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <title>Dumoine River Leaflet KMZ</title>
-    <meta charset="utf-8" />
-    <link rel="stylesheet" href="https://d19vzq90twjlae.cloudfront.net/leaflet-0.7/leaflet.css" />
-    <!-- Leaflet (JS/CSS) -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css">
-    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
-<!-- Leaflet-KMZ -->
-<script src="https://unpkg.com/leaflet-kmz@latest/dist/leaflet-kmz.js"></script>
+	<title>leaflet-kmz</title>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- Leaflet (JS/CSS) -->
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css">
+	<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+
+	<!-- JSZIP -->
+	<!-- <script src="https://unpkg.com/jszip@3.5.0/dist/jszip.min.js"></script> -->
+
+	<!-- @tmcw/togeojson -->
+	<!-- <script src="https://unpkg.com/@tmcw/togeojson@4.1.0/dist/togeojson.umd.js"></script> -->
+
+	<!-- Leaflet-KMZ -->
+	<script src="https://unpkg.com/leaflet-kmz@1.0.7/dist/leaflet-kmz-src.js"></script>
+
+	<style>
+		html,
+		body,
+		.map {
+			margin: 0;
+			padding: 0;
+			width: 100%;
+			height: 100%;
+		}
+	</style>
 </head>
+
 <body>
-    <div id="map" style="width: 600px; height: 400px"></div>
 
-    <script src="https://d19vzq90twjlae.cloudfront.net/leaflet-0.7/leaflet.js"> // Template derived from http://bl.ocks.org/d3noob/7644920
-    </script>
+	<div id="map" class="map"></div>
 
-    <script> //map 12 for more of a green/trail background, also set the view and zoom around the Dumoine River where it joins the Ottawa river
-       var map = L.map('map').setView([46.2334, -77.88538], 12);
+	<script>
+	  var map = L.map('map').setView([46.2334, -77.88538], 12);
         mapLink = 
             '<a href="http://openstreetmap.org">OpenStreetMap</a>';
         L.tileLayer(
@@ -25,13 +44,24 @@
             attribution: '&copy; ' + mapLink + ' Contributors',
             maxZoom:18 ,
             }).addTo(map);
-        
-      var kmz = L.kmzLayer().addTo(map);
-      kmz.on('load', function(e) {
-       control.addOverlay(e.layer, e.name);
-	    kmz.load('https://altalsm.github.io/pl1/opensource/Dumoine_Data/Dumoine_Data/KML/Toporama - 031K05 - Lac du pinceau, Quebec (2).kmz');
-      var control = L.control.layers(null, null, { collapsed:false }).addTo(map);
-        
-    </script>
+
+		// Instantiate KMZ layer (async)
+		var kmz = L.kmzLayer().addTo(map);
+
+		kmz.on('load', function(e) {
+			control.addOverlay(e.layer, e.name);
+			// e.layer.addTo(map);
+		});
+
+		// Add remote KMZ files as layers (NB if they are 3rd-party servers, they MUST have CORS enabled)
+		kmz.load('https://altalsm.github.io/pl1/opensource/Dumoine_Data/Dumoine_Data/KML/Toporama - 031K04 - Rolphton, Ontario, Quebec (1).kmz');
+		kmz.load('https://altalsm.github.io/pl1/opensource/Dumoine_Data/Dumoine_Data/KML/Toporama - 031K05 - Lac du pinceau, Quebec (2).kmz');
+		
+	  var control = L.control.layers(null, null, { collapsed:false }).addTo(map);
+	</script>
+
+	<a href="https://github.com/Raruto/leaflet-kmz" class="view-on-github" style="position: fixed;top: 10px;left: calc(50% - 60px);z-index: 9999;" > <img alt="View on Github" src="https://raruto.github.io/img/view-on-github.png" title="View on Github" width="163"> </a>
+
 </body>
+
 </html>
