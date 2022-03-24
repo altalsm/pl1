@@ -1,0 +1,18 @@
+{"type":"FeatureCollection", "features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-77.8533502538948,46.2247766977554,0]},"properties":{"name":"Back In The Tote Road"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-77.8543883944311,46.2203018253497,0]},"properties":{"pdfmaps_photos":"<img src=\"images/Blowdown.jpg\" /><br />","name":"Blowdown"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-77.8566925869961,46.2317279299213,0]},"properties":{"pdfmaps_photos":"<img src=\"images/Boat Access For bridge.jpg\" /><br />","name":"Boat Access For bridge"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-77.8578296455434,46.2318965073817,0]},"properties":{"pdfmaps_photos":"<img src=\"images/Bridge.jpg\" /><br />","name":"Bridge"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-77.8582676985967,46.2350822155546,0]},"properties":{"pdfmaps_photos":"<img src=\"images/Km Marker 24.jpg\" /><br />","name":"Km Marker 24"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-77.8556178502824,46.2274668223792,0]},"properties":{"pdfmaps_photos":"<img src=\"images/Km Marker 25.jpg\" /><br />","name":"Km Marker 25"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-77.8547205894379,46.2178183893523,0]},"properties":{"pdfmaps_photos":"<img src=\"images/Km Marker 26.jpg\" /><br />","name":"Km Marker 26"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-77.8548781464986,46.2172142038148,0]},"properties":{"pdfmaps_photos":"<img src=\"images/Left Turn.jpg\" /><br />","name":"Left Turn"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-77.8500064511774,46.2168107053332,0]},"properties":{"name":"Pick Up Spot?"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-77.8596707782078,46.2395055512911,0]},"properties":{"pdfmaps_photos":"<img src=\"images/Possible Site For Future Bridge?.jpg\" /><br />","name":"Possible Site For Future Bridge?"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-77.8536308639249,46.2162068085634,0]},"properties":{"name":"Primary campsite"}},
+{"type":"Feature","geometry":null,"properties":{"name":"Track 1"}},
+{"type":"Feature","geometry":null,"properties":{"name":"Track 2"}},
+{"type":"Feature","geometry":null,"properties":{"name":"Track 3"}},
+{"type":"Feature","geometry":null,"properties":{"name":"Track 4"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-77.8575473241509,46.2339772355218,0]},"properties":{"pdfmaps_photos":"<img src=\"images/Trail Access From Water.jpg\" /><br />","name":"Trail Access From Water"}}
+]}
