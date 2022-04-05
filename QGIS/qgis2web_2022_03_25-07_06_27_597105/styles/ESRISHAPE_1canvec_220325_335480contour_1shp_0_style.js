@@ -21,7 +21,7 @@ var style_ESRISHAPE_1canvec_220325_335480contour_1shp_0 = function(feature, reso
         labelText = String("");
     }
     var style = [ new ol.style.Style({
-        stroke: new ol.style.Stroke({color: 'rgba(145,82,45,1.0)', lineDash: null, lineCap: 'square', lineJoin: 'bevel', width: 0}),
+        stroke: new ol.style.Stroke({color: 'rgba(145,82,45,1.0)', transparency: 50, lineDash: null, lineCap: 'square', lineJoin: 'bevel', width: 0}),
         text: createTextStyle(feature, resolution, labelText, labelFont,
                               labelFill, placement, bufferColor,
                               bufferWidth)
