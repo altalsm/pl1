@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>leaflet-kmz</title>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- Leaflet (JS/CSS) -->
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css">
+	<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+
+	<!-- JSZIP -->
+	<!-- <script src="https://unpkg.com/jszip@3.5.0/dist/jszip.min.js"></script> -->
+
+	<!-- @tmcw/togeojson -->
+	<!-- <script src="https://unpkg.com/@tmcw/togeojson@4.1.0/dist/togeojson.umd.js"></script> -->
+
+	<!-- Leaflet-KMZ -->
+	<script src="https://unpkg.com/leaflet-kmz@1.0.7/dist/leaflet-kmz-src.js"></script>
+<!-- Leaflet Shapefile -->
+  <script src=”leaflet.shpfile.js”></script> <script src=”shp.js”></script>
+  
+	<style>
+		html,
+		body,
+		.map {
+			margin: 0;
+			padding: 0;
+			width: 100%;
+			height: 100%;
+		}
+	</style>
+</head>
+
+<body>
+
+	<div id="map" class="map"></div>
+
+	<script>
+	  var map = L.map('map').setView([46.2334, -77.88538], 12);
+        mapLink = 
+            '<a href="http://openstreetmap.org">OpenStreetMap</a>';
+        L.tileLayer(
+            'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; ' + mapLink + ' Contributors',
+            maxZoom:18 ,
+            }).addTo(map);
+
+		// Instantiate KMZ layer (async)
+		var kmz = L.kmzLayer().addTo(map);
+
+		kmz.on('load', function(e) {
+			control.addOverlay(e.layer, e.name);
+			// e.layer.addTo(map);
+		});
+
+		// Add remote KMZ files as layers (NB if they are 3rd-party servers, they MUST have CORS enabled)
+		kmz.load('https://altalsm.github.io/pl1/opensource/Dumoine_Data/Dumoine_Data/KML/Toporama - 031K04 - Rolphton, Ontario, Quebec (1).kmz');
+		kmz.load('https://altalsm.github.io/pl1/opensource/Dumoine_Data/Dumoine_Data/KML/Toporama - 031K05 - Lac du pinceau, Quebec (2).kmz');
+		
+	  var control = L.control.layers(null, null, { collapsed:false }).addTo(map);
+    
+    //add shapefile
+    
+    var shpfile = new L.Shapefile(‘pl1/opensource/Dumoine_Data/Dumoine_Data/Shapefiles/toteRoad.zip’); shpfile.addTo(map);
+    
+	</script>
+
+	!--https://github.com/Raruto/leaflet-kmz" class="view-on-github Link for KMZ file with leaflet --!
+</body>
+
+</html>
