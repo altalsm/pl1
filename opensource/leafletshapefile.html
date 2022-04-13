@@ -18,10 +18,7 @@
 
 	<!-- Leaflet-KMZ -->
 	<script src="https://unpkg.com/leaflet-kmz@1.0.7/dist/leaflet-kmz-src.js"></script>
-<!-- Leaflet Shapefile -->
-  <script src="leaflet.shpfile.js"></script> <script src="shp.js"></script>
-	
-  
+
 	<style>
 		html,
 		body,
@@ -57,18 +54,13 @@
 		});
 
 		// Add remote KMZ files as layers (NB if they are 3rd-party servers, they MUST have CORS enabled)
-		kmz.load('https://altalsm.github.io/pl1/opensource/Dumoine_Data/Dumoine_Data/KML/Toporama - 031K04 - Rolphton, Ontario, Quebec (1).kmz');
-		kmz.load('https://altalsm.github.io/pl1/opensource/Dumoine_Data/Dumoine_Data/KML/Toporama - 031K05 - Lac du pinceau, Quebec (2).kmz');
+		kmz.load('https://altalsm.github.io/pl1/opensource/Dumoine_Data/Dumoine_Data/KML/Toporama - 031K04 - Rolphton.kmz');
+		kmz.load('https://altalsm.github.io/pl1/opensource/Dumoine_Data/Dumoine_Data/KML/Toporama - 031K05 - Lac du p.kmz');
 		
 	  var control = L.control.layers(null, null, { collapsed:false }).addTo(map);
-    
-    //add shapefile
-    
-    var shpfile = new L.Shapefile(‘toteRoad.zip’); shpfile.addTo(map);
-    
 	</script>
 
-	
+	!--https://github.com/Raruto/leaflet-kmz" class="view-on-github Link for KMZ file with leaflet --!
 </body>
 
 </html>
