@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Dumoine River</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Allison Talsma">
+  <meta name="description" content="Google My Maps - English">
+  <meta name="keywords" content="Ontario">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="../CSS/main.css">
+  <link rel="icon" href="../Images/logow.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  
+  
+    <link rel="stylesheet" href="https://js.arcgis.com/4.22/esri/themes/light/main.css" />
+
+    <script src="https://js.arcgis.com/4.22/"></script>
+
+    <script>
+      require(["esri/views/MapView", "esri/WebMap"], (MapView, WebMap) => {
+        /************************************************************
+         * Creates a new WebMap from AGOL -
+         References the MAP ID for the new map created in AGOL
+         ************************************************************/
+        const webmap = new WebMap({
+          portalItem: {
+         
+            id: "b18882d342b94db8842667a7b3b838e3"
+          }
+        });
+
+       
+        const view = new MapView({
+          map: webmap,
+          container: "viewDiv"
+        });
+      });
+    </script>
+  </head>
+<body>
+
+  <div id="page-wrapper">
+    <nav id="nav">
+      <ul>
+        <li class="current"><a href="home.html">Home</a></li>
+        <li>
+          <a href="">OORA</a>
+          <ul>
+                        <li><a href="">Home</a></li>
+        
+    </nav>
+    
+    <h2> Home Town </h2>
+    <iframe src="https://www.google.com/maps/d/u/1/embed?mid=1R9U5kvYSBooZlKoYF-jdL-cpnLTtHl4&ehbc=2E312F" width="640" height="480"></iframe>
+    <br>  
+    <br>  
+          <h2> Travelling Canada</h2>
+           <div id="viewDiv"></div>   
+    
+      <script src="../JS/jquery.min.js"></script>
+  <script src="../JS/jquery.dropotron.min.js"></script>
+  <script src="../JS/jquery.scrolly.min.js"></script>
+  <script src="../JS/browser.min.js"></script>
+  <script src="../JS/breakpoints.min.js"></script>
+  <script src="../JS/util.js"></script>
+  <script src="../JS/main.js"></script>
+  <script>
+    var slideIndex = 1;
+    showDivs(slideIndex);
+    
+    function plusDivs(n) {
+      showDivs(slideIndex += n);
+    }
+    
+    function currentDiv(n) {
+      showDivs(slideIndex = n);
+    }
+    
+    function showDivs(n) {
+      var i;
+      var x = document.getElementsByClassName("mySlides");
+      var dots = document.getElementsByClassName("demo");
+      if (n > x.length) {slideIndex = 1}
+      if (n < 1) {slideIndex = x.length}
+      for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";  
+      }
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" w3-white", "");
+      }
+      x[slideIndex-1].style.display = "block";  
+      dots[slideIndex-1].className += " w3-white";
+    }
+    var slideIndex = 0;
+    carousel();
+
+    function carousel() {
+      var i;
+      var x = document.getElementsByClassName("mySlides");
+      for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";
+      }
+      slideIndex++;
+      if (slideIndex > x.length) {slideIndex = 1}
+      x[slideIndex-1].style.display = "block";
+      setTimeout(carousel, 5000); // Change image every 2 seconds
+    }
+    </script>
+</body>
+</html>
