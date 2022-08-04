@@ -1,0 +1,5 @@
+docker run \
+    -v / https://github.com/altalsm/pl1/blob/main/osmserver/map.pbf \
+    -v osm-data:/data/database/ \
+    overv/openstreetmap-tile-server \
+    import
